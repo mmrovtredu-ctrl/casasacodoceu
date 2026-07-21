@@ -245,6 +245,15 @@ section{position:relative}
 .btn.wa:hover{transform:translateY(-3px);box-shadow:0 20px 44px -12px rgba(31,167,90,.8)}
 .price .fineprint{margin-top:.9rem;font-size:.75rem;color:var(--bone-dim);text-align:center;letter-spacing:.02em}
 
+/* ---------- I18N + PRICE EXTRAS ---------- */
+.lang-toggle{background:transparent;border:1px solid var(--line);color:var(--bone-dim);
+  border-radius:100px;padding:.42rem .8rem;font-family:"Manrope",sans-serif;font-size:.72rem;
+  letter-spacing:.14em;font-weight:600;cursor:pointer;transition:color .3s,border-color .3s,background .3s}
+.lang-toggle:hover{color:var(--ink);background:var(--gold);border-color:var(--gold)}
+.approx{font-size:.82rem;color:var(--bone-dim);margin:0 0 1.4rem;letter-spacing:.01em}
+.price .amt{margin-bottom:.25rem}
+@media(max-width:760px){.lang-toggle{margin-left:auto;margin-right:.2rem}}
+
 /* ---------- FOOTER ---------- */
 footer{background:var(--ink);border-top:1px solid var(--line);padding:2.6rem 0;text-align:center}
 footer .wrap{display:flex;flex-direction:column;gap:.7rem;align-items:center}
@@ -324,11 +333,12 @@ footer small{color:var(--bone-dim);font-size:.8rem;letter-spacing:.03em}
 <nav class="nav" id="nav">
   <a href="#top" class="brand">Saco&nbsp;do&nbsp;<span>Céu</span></a>
   <div class="nav-links">
-    <a href="#casas">As casas</a>
-    <a href="#estrutura">Estrutura</a>
-    <a href="#niveis">O terreno</a>
-    <a href="#galeria">Galeria</a>
-    <a href="#precos" class="nav-cta">Valores</a>
+    <a href="#casas" data-i18n="nav_houses">As casas</a>
+    <a href="#estrutura" data-i18n="nav_amen">Estrutura</a>
+    <a href="#niveis" data-i18n="nav_land">O terreno</a>
+    <a href="#galeria" data-i18n="nav_gallery">Galeria</a>
+    <button class="lang-toggle" id="langToggle" aria-label="Language / Idioma">EN</button>
+    <a href="#precos" class="nav-cta" data-i18n="nav_pricing">Valores</a>
   </div>
 </nav>
 
@@ -339,33 +349,29 @@ footer small{color:var(--bone-dim);font-size:.8rem;letter-spacing:.03em}
   <canvas id="godrays"></canvas>
   <div class="hero-inner">
     <div class="hero-loc"><span class="eyebrow">Ilha Grande · Angra dos Reis · RJ</span></div>
-    <h1>
-      <span class="ln">Um refúgio</span>
-      <span class="ln">à beira da</span>
-      <span class="ln"><em>Mata Atlântica</em></span>
-    </h1>
-    <p class="hero-sub">Casa mobiliada no Saco do Céu — 3.000 m² em três níveis, duas casas e a floresta como quintal. <strong>Arrende por R$20 mil/mês</strong> ou <strong>adquira por R$2 milhões</strong>.</p>
+    <h1 data-i18n="hero_h1"><span class="ln">Um refúgio</span><span class="ln">à beira da</span><span class="ln"><em>Mata Atlântica</em></span></h1>
+    <p class="hero-sub" data-i18n="hero_sub">Casa mobiliada no Saco do Céu — 3.000 m² em três níveis, duas casas e a floresta como quintal. <strong>Arrende por R$25 mil/mês</strong> ou <strong>adquira por R$2 milhões</strong>.</p>
     <div class="hero-row">
-      <a class="btn btn-gold" href="#precos">Ver valores</a>
-      <a class="btn btn-ghost" href="#casas">Conhecer o imóvel</a>
+      <a class="btn btn-gold" href="#precos" data-i18n="hero_cta1">Ver valores</a>
+      <a class="btn btn-ghost" href="#casas" data-i18n="hero_cta2">Conhecer o imóvel</a>
     </div>
   </div>
-  <div class="scrollcue"><span>Role</span><span class="bar"></span></div>
+  <div class="scrollcue"><span data-i18n="scroll">Role</span><span class="bar"></span></div>
 </header>
 
 <!-- INTRO + STATS -->
 <section class="intro pad" id="sobre">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">O imóvel</span>
-      <h2>Duas casas, uma <em>floresta inteira</em> para chamar de sua.</h2>
-      <p>Escondida na baía do Saco do Céu, a propriedade ocupa um terreno de três mil metros quadrados que desce em três platôs pela mata. São duas casas independentes, lado a lado, cercadas por decks, bananeiras e blocos de granito centenários.</p>
+      <span class="eyebrow" data-i18n="intro_eb">O imóvel</span>
+      <h2 data-i18n="intro_h2">Duas casas, uma <em>floresta inteira</em> para chamar de sua.</h2>
+      <p data-i18n="intro_p">Escondida na baía do Saco do Céu, a propriedade ocupa um terreno de três mil metros quadrados que desce em três platôs pela mata. São duas casas independentes, lado a lado, cercadas por decks, bananeiras e blocos de granito centenários.</p>
     </div>
     <div class="stats">
-      <div class="stat reveal d1"><div class="n" data-count="3000" data-suffix=" m²">0</div><div class="l">Terreno</div></div>
-      <div class="stat reveal d2"><div class="n" data-count="2" data-suffix="">0</div><div class="l">Casas</div></div>
-      <div class="stat reveal d3"><div class="n" data-count="3" data-suffix="">0</div><div class="l">Quartos</div></div>
-      <div class="stat reveal d4"><div class="n" data-count="3" data-suffix=" níveis">0</div><div class="l">Platôs na mata</div></div>
+      <div class="stat reveal d1"><div class="n" data-count="3000" data-suffix=" m²">0</div><div class="l" data-i18n="stat_land">Terreno</div></div>
+      <div class="stat reveal d2"><div class="n" data-count="2" data-suffix="">0</div><div class="l" data-i18n="stat_houses">Casas</div></div>
+      <div class="stat reveal d3"><div class="n" data-count="3" data-suffix="">0</div><div class="l" data-i18n="stat_beds">Quartos</div></div>
+      <div class="stat reveal d4"><div class="n" data-count="3" data-suffix="">0</div><div class="l" data-i18n="stat_tiers">Níveis na mata</div></div>
     </div>
   </div>
 </section>
@@ -374,23 +380,23 @@ footer small{color:var(--bone-dim);font-size:.8rem;letter-spacing:.03em}
 <section class="houses pad" id="casas">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">As duas casas</span>
-      <h2>Espaço para <em>viver e receber</em>.</h2>
-      <p>Uma casa aconchegante para o dia a dia e uma casa maior, voltada para o convívio — cada uma com sua varanda para a mata.</p>
+      <span class="eyebrow" data-i18n="houses_eb">As duas casas</span>
+      <h2 data-i18n="houses_h2">Espaço para <em>viver e receber</em>.</h2>
+      <p data-i18n="houses_p">Uma casa aconchegante para o dia a dia e uma casa maior, voltada para o convívio — cada uma com sua varanda para a mata.</p>
     </div>
     <div class="house-grid">
       <div class="tilt reveal d1">
         <article class="card" data-tilt>
           <div class="ph"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-i="i1" alt="Primeira casa com varanda de madeira" /></div>
           <div class="body">
-            <span class="tag">Casa 1 · aconchego</span>
-            <h3>A casa do descanso</h3>
+            <span class="tag" data-i18n="c1_tag">Casa 1 · aconchego</span>
+            <h3 data-i18n="c1_h3">A casa do descanso</h3>
             <div class="rooms">
-              <span class="chip">1 quarto</span>
-              <span class="chip">Sala</span>
-              <span class="chip">Cozinha</span>
-              <span class="chip">Banheiro</span>
-              <span class="chip">Varanda</span>
+              <span class="chip" data-i18n="chip_1bed">1 quarto</span>
+              <span class="chip" data-i18n="chip_living">Sala</span>
+              <span class="chip" data-i18n="chip_kitchen">Cozinha</span>
+              <span class="chip" data-i18n="chip_bath">Banheiro</span>
+              <span class="chip" data-i18n="chip_veranda">Varanda</span>
             </div>
           </div>
         </article>
@@ -399,15 +405,15 @@ footer small{color:var(--bone-dim);font-size:.8rem;letter-spacing:.03em}
         <article class="card" data-tilt>
           <div class="ph"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-i="i2" alt="Segunda casa com área gourmet e deck amplo" /></div>
           <div class="body">
-            <span class="tag">Casa 2 · convívio</span>
-            <h3>A casa de receber</h3>
+            <span class="tag" data-i18n="c2_tag">Casa 2 · convívio</span>
+            <h3 data-i18n="c2_h3">A casa de receber</h3>
             <div class="rooms">
-              <span class="chip">2 quartos</span>
-              <span class="chip">Sala</span>
-              <span class="chip">Cozinha</span>
-              <span class="chip">Banheiro</span>
-              <span class="chip">Varanda externa</span>
-              <span class="chip">Cozinha gourmet</span>
+              <span class="chip" data-i18n="chip_2bed">2 quartos</span>
+              <span class="chip" data-i18n="chip_living">Sala</span>
+              <span class="chip" data-i18n="chip_kitchen">Cozinha</span>
+              <span class="chip" data-i18n="chip_bath">Banheiro</span>
+              <span class="chip" data-i18n="chip_vext">Varanda externa</span>
+              <span class="chip" data-i18n="chip_gourmet">Cozinha gourmet</span>
             </div>
           </div>
         </article>
@@ -420,30 +426,30 @@ footer small{color:var(--bone-dim);font-size:.8rem;letter-spacing:.03em}
 <section class="features pad" id="estrutura">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">A estrutura</span>
-      <h2>Tudo pensado para <em>a vida ao ar livre</em>.</h2>
-      <p>Área de lazer completa integrada à natureza — do treino de manhã ao jantar sob as árvores.</p>
+      <span class="eyebrow" data-i18n="feat_eb">A estrutura</span>
+      <h2 data-i18n="feat_h2">Tudo pensado para <em>a vida ao ar livre</em>.</h2>
+      <p data-i18n="feat_p">Área de lazer completa integrada à natureza — do treino de manhã ao jantar sob as árvores.</p>
     </div>
     <div class="feat-grid">
       <div class="feat tall reveal d1">
         <div class="fimg" data-par><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-i="i3" alt="Cozinha gourmet coberta ao lado do deck" /></div>
-        <div class="cap"><div class="k">Cozinha gourmet</div><div class="s">Bancada e área coberta voltada para o deck</div></div>
+        <div class="cap"><div class="k" data-i18n="feat_gourmet_k">Cozinha gourmet</div><div class="s" data-i18n="feat_gourmet_s">Bancada e área coberta voltada para o deck</div></div>
       </div>
       <div class="feat reveal d2">
         <div class="fimg" data-par><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-i="i4" alt="Academia com equipamentos" /></div>
-        <div class="cap"><div class="k">Academia</div><div class="s">Espaço equipado na mata</div></div>
+        <div class="cap"><div class="k" data-i18n="feat_gym_k">Academia</div><div class="s" data-i18n="feat_gym_s">Espaço equipado na mata</div></div>
       </div>
       <div class="feat reveal d3">
         <div class="fimg" data-par><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-i="i5" alt="Quadra de esportes" /></div>
-        <div class="cap"><div class="k">Quadra</div><div class="s">Área externa para esporte e jogos</div></div>
+        <div class="cap"><div class="k" data-i18n="feat_court_k">Quadra</div><div class="s" data-i18n="feat_court_s">Área externa para esporte e jogos</div></div>
       </div>
       <div class="feat reveal d2">
         <div class="fimg" data-par><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-i="i6" alt="Deck de madeira com escadas" /></div>
-        <div class="cap"><div class="k">Dois decks</div><div class="s">Madeira e porcelanato em desníveis</div></div>
+        <div class="cap"><div class="k" data-i18n="feat_decks_k">Dois decks</div><div class="s" data-i18n="feat_decks_s">Madeira e porcelanato em desníveis</div></div>
       </div>
       <div class="feat reveal d3">
         <div class="fimg" data-par><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-i="i7" alt="Área de lazer com pergolado" /></div>
-        <div class="cap"><div class="k">Área de lazer</div><div class="s">Pergolados, piscina e espaço aberto</div></div>
+        <div class="cap"><div class="k" data-i18n="feat_leisure_k">Área de lazer</div><div class="s" data-i18n="feat_leisure_s">Pergolados, piscina e espaço aberto</div></div>
       </div>
     </div>
   </div>
@@ -453,15 +459,15 @@ footer small{color:var(--bone-dim);font-size:.8rem;letter-spacing:.03em}
 <section class="levels pad" id="niveis">
   <div class="wrap">
     <div class="sec-head reveal" style="margin-bottom:1rem">
-      <span class="eyebrow">O terreno em três níveis</span>
-      <h2>Uma subida pela <em>mata</em>.</h2>
+      <span class="eyebrow" data-i18n="lv_eb">O terreno em três níveis</span>
+      <h2 data-i18n="lv_h2">Uma subida pela <em>mata</em>.</h2>
     </div>
 
     <div class="level-row reveal">
       <div class="lv-txt">
         <span class="lv-num">01</span>
-        <h3>A <em>entrada</em></h3>
-        <p>O primeiro nível recebe quem chega, com a escada que conduz pela mata até o coração da propriedade.</p>
+        <h3 data-i18n="lv1_h3">A <em>entrada</em></h3>
+        <p data-i18n="lv1_p">O primeiro nível recebe quem chega, com a escada que conduz pela mata até o coração da propriedade.</p>
       </div>
       <div class="lv-media"><div class="pimg" data-par><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-i="i8" alt="Entrada e caminho com escada" /></div></div>
     </div>
@@ -470,16 +476,16 @@ footer small{color:var(--bone-dim);font-size:.8rem;letter-spacing:.03em}
       <div class="lv-media"><div class="pimg" data-par><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-i="i9" alt="Área construída com decks" /></div></div>
       <div class="lv-txt">
         <span class="lv-num">02</span>
-        <h3>A <em>área construída</em></h3>
-        <p>No nível intermediário fica o coração do imóvel: as duas casas, os decks, a cozinha gourmet, a academia e a quadra — todo o convívio reunido.</p>
+        <h3 data-i18n="lv2_h3">A <em>área construída</em></h3>
+        <p data-i18n="lv2_p">No nível intermediário fica o coração do imóvel: as duas casas, os decks, a cozinha gourmet, a academia e a quadra — todo o convívio reunido.</p>
       </div>
     </div>
 
     <div class="level-row reveal">
       <div class="lv-txt">
         <span class="lv-num">03</span>
-        <h3>A <em>mata</em></h3>
-        <p>No topo, a floresta preservada — bananeiras, blocos de granito e a sombra fresca da Mata Atlântica ao redor de tudo.</p>
+        <h3 data-i18n="lv3_h3">A <em>mata</em></h3>
+        <p data-i18n="lv3_p">No topo, a floresta preservada — bananeiras, blocos de granito e a sombra fresca da Mata Atlântica ao redor de tudo.</p>
       </div>
       <div class="lv-media"><div class="pimg" data-par><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-i="i10" alt="Rochas de granito e escada na mata" /></div></div>
     </div>
@@ -490,9 +496,9 @@ footer small{color:var(--bone-dim);font-size:.8rem;letter-spacing:.03em}
 <section class="gallery pad" id="galeria">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">Galeria</span>
-      <h2>Percorra <em>cada canto</em>.</h2>
-      <p>Toque em qualquer foto para ampliar.</p>
+      <span class="eyebrow" data-i18n="gal_eb">Galeria</span>
+      <h2 data-i18n="gal_h2">Percorra <em>cada canto</em>.</h2>
+      <p data-i18n="gal_p">Toque em qualquer foto para ampliar.</p>
     </div>
     <div class="grid-m" id="grid">
       <div class="gitem reveal"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-i="i0" alt="Deck ao entardecer" loading="lazy"></div>
@@ -515,44 +521,46 @@ footer small{color:var(--bone-dim);font-size:.8rem;letter-spacing:.03em}
 <section class="pricing pad" id="precos">
   <div class="wrap">
     <div class="sec-head reveal" style="text-align:center;margin-inline:auto">
-      <span class="eyebrow" style="justify-content:center">Duas formas de ter</span>
-      <h2>Escolha o seu <em>jeito de ficar</em>.</h2>
-      <p style="margin-inline:auto">Arrende o refúgio por temporada mensal ou torne-o seu de vez. Fale direto no WhatsApp.</p>
+      <span class="eyebrow" style="justify-content:center" data-i18n="pr_eb">Duas formas de ter</span>
+      <h2 data-i18n="pr_h2">Escolha o seu <em>jeito de ficar</em>.</h2>
+      <p style="margin-inline:auto" data-i18n="pr_p">Arrende o refúgio por temporada mensal ou torne-o seu de vez. Fale direto no WhatsApp.</p>
     </div>
     <div class="price-grid">
 
       <article class="price reveal d1">
-        <span class="tag">Arrendamento</span>
-        <div class="amt"><span class="cur">R$</span>20.000<span class="per">/ mês</span></div>
-        <p class="pd">Casa mobiliada e pronta para morar, com toda a estrutura de lazer inclusa.</p>
+        <span class="tag" data-i18n="pr_rent_tag">Arrendamento</span>
+        <div class="amt" data-price="rent"></div>
+        <div class="approx" data-approx="rent"></div>
+        <p class="pd" data-i18n="pr_rent_pd">Casa mobiliada e pronta para morar, com toda a estrutura de lazer inclusa.</p>
         <ul class="plist">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Duas casas mobiliadas</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Cozinha gourmet, academia e quadra</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Dois decks e área de lazer</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>3.000 m² na Mata Atlântica</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="pr_rent_li1">Duas casas mobiliadas</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="pr_rent_li2">Cozinha gourmet, academia e quadra</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="pr_rent_li3">Dois decks e área de lazer</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="pr_rent_li4">3.000 m² na Mata Atlântica</span></li>
         </ul>
-        <a class="btn wa full" href="https://wa.me/5524999643048?text=Ol%C3%A1!%20Tenho%20interesse%20em%20ARRENDAR%20a%20casa%20na%20Ilha%20Grande%20(Saco%20do%20C%C3%A9u)%20por%20R%2420.000%2Fm%C3%AAs." target="_blank" rel="noopener">
+        <a class="btn wa full" data-wa="rent" href="https://wa.me/5524999643048?text=Ol%C3%A1!%20Tenho%20interesse%20em%20ARRENDAR%20a%20casa%20na%20Ilha%20Grande%20(Saco%20do%20C%C3%A9u)%20por%20R%2420.000%2Fm%C3%AAs." target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-2.9.8.8-2.8-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
-          Arrendar no WhatsApp
+          <span data-i18n="pr_rent_btn">Arrendar no WhatsApp</span>
         </a>
-        <div class="fineprint">Consulte disponibilidade e condições</div>
+        <div class="fineprint" data-i18n="pr_rent_fine">Consulte disponibilidade e condições</div>
       </article>
 
       <article class="price feature reveal d2">
-        <span class="tag">Venda</span>
-        <div class="amt"><span class="cur">R$</span>2.000.000</div>
-        <p class="pd">Todo o refúgio seu: 3.000 m² em três níveis, duas casas e a floresta ao redor.</p>
+        <span class="tag" data-i18n="pr_sale_tag">Venda</span>
+        <div class="amt" data-price="sale"></div>
+        <div class="approx" data-approx="sale"></div>
+        <p class="pd" data-i18n="pr_sale_pd">Todo o refúgio seu: 3.000 m² em três níveis, duas casas e a floresta ao redor.</p>
         <ul class="plist">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Terreno de 3.000 m² em três platôs</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Duas casas independentes</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Estrutura de lazer completa</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Endereço raro no Saco do Céu</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="pr_sale_li1">Terreno de 3.000 m² em três platôs</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="pr_sale_li2">Duas casas independentes</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="pr_sale_li3">Estrutura de lazer completa</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="pr_sale_li4">Endereço raro no Saco do Céu</span></li>
         </ul>
-        <a class="btn wa full" href="https://wa.me/5524999643048?text=Ol%C3%A1!%20Tenho%20interesse%20em%20COMPRAR%20a%20casa%20na%20Ilha%20Grande%20(Saco%20do%20C%C3%A9u)%20por%20R%242.000.000." target="_blank" rel="noopener">
+        <a class="btn wa full" data-wa="sale" href="https://wa.me/5524999643048?text=Ol%C3%A1!%20Tenho%20interesse%20em%20COMPRAR%20a%20casa%20na%20Ilha%20Grande%20(Saco%20do%20C%C3%A9u)%20por%20R%242.000.000." target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-2.9.8.8-2.8-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
-          Comprar no WhatsApp
+          <span data-i18n="pr_sale_btn">Comprar no WhatsApp</span>
         </a>
-        <div class="fineprint">Agende uma visita à propriedade</div>
+        <div class="fineprint" data-i18n="pr_sale_fine">Agende uma visita à propriedade</div>
       </article>
 
     </div>
@@ -562,16 +570,16 @@ footer small{color:var(--bone-dim);font-size:.8rem;letter-spacing:.03em}
 <!-- CONTACT -->
 <section class="contact pad" id="contato">
   <div class="wrap">
-    <span class="eyebrow">Fale com a gente</span>
-    <h2>Arrende ou compre <em>o seu refúgio</em>.</h2>
-    <p>R$20 mil/mês para arrendar ou R$2 milhões para comprar. Fale direto pelo WhatsApp para tirar dúvidas, ver disponibilidade e agendar uma visita.</p>
+    <span class="eyebrow" data-i18n="ct_eb">Fale com a gente</span>
+    <h2 data-i18n="ct_h2">Arrende ou compre <em>o seu refúgio</em>.</h2>
+    <p data-i18n="ct_p">R$25 mil/mês para arrendar ou R$2 milhões para comprar. Fale direto pelo WhatsApp para tirar dúvidas, ver disponibilidade e agendar uma visita.</p>
     <a class="phone" href="tel:+5524999643048">(24) 99964-3048</a>
     <div class="contact-row">
-      <a class="btn btn-gold" id="waBtn" href="https://wa.me/5524999643048?text=Ol%C3%A1!%20Tenho%20interesse%20na%20casa%20para%20alugar%20na%20Ilha%20Grande%20(Saco%20do%20C%C3%A9u)." target="_blank" rel="noopener">
+      <a class="btn btn-gold" id="waBtn" data-wa="generic" href="https://wa.me/5524999643048?text=Ol%C3%A1!%20Tenho%20interesse%20na%20casa%20na%20Ilha%20Grande%20(Saco%20do%20C%C3%A9u)." target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-2.9.8.8-2.8-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
-        Falar no WhatsApp
+        <span data-i18n="ct_wa">Falar no WhatsApp</span>
       </a>
-      <a class="btn btn-ghost" href="tel:+5524999643048">Ligar agora</a>
+      <a class="btn btn-ghost" href="tel:+5524999643048" data-i18n="ct_call">Ligar agora</a>
     </div>
   </div>
 </section>
@@ -579,12 +587,12 @@ footer small{color:var(--bone-dim);font-size:.8rem;letter-spacing:.03em}
 <footer>
   <div class="wrap">
     <a href="#top" class="brand">Saco do <span>Céu</span></a>
-    <small>Casa mobiliada para alugar · Ilha Grande · Saco do Céu · Angra dos Reis — RJ</small>
+    <small data-i18n="foot">Casa mobiliada · Ilha Grande · Saco do Céu · Angra dos Reis — RJ</small>
     <small>(24) 99964-3048</small>
   </div>
 </footer>
 
-<a class="wa-float" href="https://wa.me/5524999643048?text=Ol%C3%A1!%20Tenho%20interesse%20na%20casa%20para%20alugar%20na%20Ilha%20Grande." target="_blank" rel="noopener" aria-label="WhatsApp">
+<a class="wa-float" data-wa="generic" href="https://wa.me/5524999643048?text=Ol%C3%A1!%20Tenho%20interesse%20na%20casa%20na%20Ilha%20Grande." target="_blank" rel="noopener" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-2.9.8.8-2.8-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
 </a>
 
@@ -595,6 +603,68 @@ document.querySelectorAll('img[data-i]').forEach(function(m){var s=window.__IMG[
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ===== i18n + currency ===== */
+const DICT = {"pt": {"nav_houses": "As casas", "nav_amen": "Estrutura", "nav_land": "O terreno", "nav_gallery": "Galeria", "nav_pricing": "Valores", "hero_h1": "<span class=\"ln\">Um refúgio</span><span class=\"ln\">à beira da</span><span class=\"ln\"><em>Mata Atlântica</em></span>", "hero_sub": "Casa mobiliada no Saco do Céu — 3.000 m² em três níveis, duas casas e a floresta como quintal. <strong>Arrende por R$25 mil/mês</strong> ou <strong>adquira por R$2 milhões</strong>.", "hero_cta1": "Ver valores", "hero_cta2": "Conhecer o imóvel", "scroll": "Role", "intro_eb": "O imóvel", "intro_h2": "Duas casas, uma <em>floresta inteira</em> para chamar de sua.", "intro_p": "Escondida na baía do Saco do Céu, a propriedade ocupa um terreno de três mil metros quadrados que desce em três platôs pela mata. São duas casas independentes, lado a lado, cercadas por decks, bananeiras e blocos de granito centenários.", "stat_land": "Terreno", "stat_houses": "Casas", "stat_beds": "Quartos", "stat_tiers": "Níveis na mata", "houses_eb": "As duas casas", "houses_h2": "Espaço para <em>viver e receber</em>.", "houses_p": "Uma casa aconchegante para o dia a dia e uma casa maior, voltada para o convívio — cada uma com sua varanda para a mata.", "c1_tag": "Casa 1 · aconchego", "c1_h3": "A casa do descanso", "c2_tag": "Casa 2 · convívio", "c2_h3": "A casa de receber", "chip_1bed": "1 quarto", "chip_living": "Sala", "chip_kitchen": "Cozinha", "chip_bath": "Banheiro", "chip_veranda": "Varanda", "chip_2bed": "2 quartos", "chip_vext": "Varanda externa", "chip_gourmet": "Cozinha gourmet", "feat_eb": "A estrutura", "feat_h2": "Tudo pensado para <em>a vida ao ar livre</em>.", "feat_p": "Área de lazer completa integrada à natureza — do treino de manhã ao jantar sob as árvores.", "feat_gourmet_k": "Cozinha gourmet", "feat_gourmet_s": "Bancada e área coberta voltada para o deck", "feat_gym_k": "Academia", "feat_gym_s": "Espaço equipado na mata", "feat_court_k": "Quadra", "feat_court_s": "Área externa para esporte e jogos", "feat_decks_k": "Dois decks", "feat_decks_s": "Madeira e porcelanato em desníveis", "feat_leisure_k": "Área de lazer", "feat_leisure_s": "Pergolados, piscina e espaço aberto", "lv_eb": "O terreno em três níveis", "lv_h2": "Uma subida pela <em>mata</em>.", "lv1_h3": "A <em>entrada</em>", "lv1_p": "O primeiro nível recebe quem chega, com a escada que conduz pela mata até o coração da propriedade.", "lv2_h3": "A <em>área construída</em>", "lv2_p": "No nível intermediário fica o coração do imóvel: as duas casas, os decks, a cozinha gourmet, a academia e a quadra — todo o convívio reunido.", "lv3_h3": "A <em>mata</em>", "lv3_p": "No topo, a floresta preservada — bananeiras, blocos de granito e a sombra fresca da Mata Atlântica ao redor de tudo.", "gal_eb": "Galeria", "gal_h2": "Percorra <em>cada canto</em>.", "gal_p": "Toque em qualquer foto para ampliar.", "pr_eb": "Duas formas de ter", "pr_h2": "Escolha o seu <em>jeito de ficar</em>.", "pr_p": "Arrende o refúgio por temporada mensal ou torne-o seu de vez. Fale direto no WhatsApp.", "pr_rent_tag": "Arrendamento", "pr_rent_pd": "Casa mobiliada e pronta para morar, com toda a estrutura de lazer inclusa.", "pr_rent_li1": "Duas casas mobiliadas", "pr_rent_li2": "Cozinha gourmet, academia e quadra", "pr_rent_li3": "Dois decks e área de lazer", "pr_rent_li4": "3.000 m² na Mata Atlântica", "pr_rent_btn": "Arrendar no WhatsApp", "pr_rent_fine": "Consulte disponibilidade e condições", "pr_sale_tag": "Venda", "pr_sale_pd": "Todo o refúgio seu: 3.000 m² em três níveis, duas casas e a floresta ao redor.", "pr_sale_li1": "Terreno de 3.000 m² em três platôs", "pr_sale_li2": "Duas casas independentes", "pr_sale_li3": "Estrutura de lazer completa", "pr_sale_li4": "Endereço raro no Saco do Céu", "pr_sale_btn": "Comprar no WhatsApp", "pr_sale_fine": "Agende uma visita à propriedade", "ct_eb": "Fale com a gente", "ct_h2": "Arrende ou compre <em>o seu refúgio</em>.", "ct_p": "R$25 mil/mês para arrendar ou R$2 milhões para comprar. Fale direto pelo WhatsApp para tirar dúvidas, ver disponibilidade e agendar uma visita.", "ct_wa": "Falar no WhatsApp", "ct_call": "Ligar agora", "foot": "Casa mobiliada · Ilha Grande · Saco do Céu · Angra dos Reis — RJ"}, "en": {"nav_houses": "The houses", "nav_amen": "Amenities", "nav_land": "The land", "nav_gallery": "Gallery", "nav_pricing": "Pricing", "hero_h1": "<span class=\"ln\">A retreat</span><span class=\"ln\">at the edge of the</span><span class=\"ln\"><em>Atlantic Forest</em></span>", "hero_sub": "Furnished home in Saco do Céu — 3,000 m² across three levels, two houses and the forest as your backyard. <strong>Rent for ~US$4,900/mo</strong> or <strong>buy for ~US$392,000</strong>.", "hero_cta1": "See pricing", "hero_cta2": "Explore the property", "scroll": "Scroll", "intro_eb": "The property", "intro_h2": "Two houses, and a <em>whole forest</em> to call your own.", "intro_p": "Tucked into the bay of Saco do Céu, the property spans three thousand square metres, descending through the forest in three tiers. Two independent houses sit side by side, surrounded by decks, banana trees and centuries-old granite boulders.", "stat_land": "Land", "stat_houses": "Houses", "stat_beds": "Bedrooms", "stat_tiers": "Forest levels", "houses_eb": "The two houses", "houses_h2": "Room to <em>live and to host</em>.", "houses_p": "A cozy house for everyday living and a larger one made for gathering — each with its own veranda facing the forest.", "c1_tag": "House 1 · cozy", "c1_h3": "The house of rest", "c2_tag": "House 2 · gathering", "c2_h3": "The house for hosting", "chip_1bed": "1 bedroom", "chip_living": "Living room", "chip_kitchen": "Kitchen", "chip_bath": "Bathroom", "chip_veranda": "Veranda", "chip_2bed": "2 bedrooms", "chip_vext": "Outdoor veranda", "chip_gourmet": "Gourmet kitchen", "feat_eb": "The amenities", "feat_h2": "Everything for <em>life outdoors</em>.", "feat_p": "A complete leisure area woven into nature — from a morning workout to dinner under the trees.", "feat_gourmet_k": "Gourmet kitchen", "feat_gourmet_s": "Countertop and covered area facing the deck", "feat_gym_k": "Gym", "feat_gym_s": "Equipped space in the forest", "feat_court_k": "Court", "feat_court_s": "Outdoor space for sports and games", "feat_decks_k": "Two decks", "feat_decks_s": "Wood and tile across levels", "feat_leisure_k": "Leisure area", "feat_leisure_s": "Pergolas, pool and open space", "lv_eb": "The land in three levels", "lv_h2": "A climb through the <em>forest</em>.", "lv1_h3": "The <em>entrance</em>", "lv1_p": "The first level welcomes you, with the stairway that leads through the forest to the heart of the property.", "lv2_h3": "The <em>built area</em>", "lv2_p": "The middle level holds the heart of the property: the two houses, the decks, the gourmet kitchen, the gym and the court — all the living space together.", "lv3_h3": "The <em>forest</em>", "lv3_p": "At the top, preserved forest — banana trees, granite boulders and the cool shade of the Atlantic Forest all around.", "gal_eb": "Gallery", "gal_h2": "Explore <em>every corner</em>.", "gal_p": "Tap any photo to enlarge.", "pr_eb": "Two ways to have it", "pr_h2": "Choose <em>how you'll stay</em>.", "pr_p": "Rent the retreat monthly or make it yours for good. Message us on WhatsApp.", "pr_rent_tag": "Rental", "pr_rent_pd": "Furnished and move-in ready, with all the leisure amenities included.", "pr_rent_li1": "Two furnished houses", "pr_rent_li2": "Gourmet kitchen, gym and court", "pr_rent_li3": "Two decks and leisure area", "pr_rent_li4": "3,000 m² in the Atlantic Forest", "pr_rent_btn": "Rent via WhatsApp", "pr_rent_fine": "Check availability and terms", "pr_sale_tag": "For sale", "pr_sale_pd": "The whole retreat, yours: 3,000 m² across three levels, two houses and the forest around them.", "pr_sale_li1": "3,000 m² of land in three tiers", "pr_sale_li2": "Two independent houses", "pr_sale_li3": "Complete leisure amenities", "pr_sale_li4": "A rare address in Saco do Céu", "pr_sale_btn": "Buy via WhatsApp", "pr_sale_fine": "Schedule a visit", "ct_eb": "Get in touch", "ct_h2": "Rent or buy <em>your retreat</em>.", "ct_p": "~US$4,900/mo to rent or ~US$392,000 to buy. Message us on WhatsApp for questions, availability and to schedule a visit.", "ct_wa": "Chat on WhatsApp", "ct_call": "Call now", "foot": "Furnished home · Ilha Grande · Saco do Céu · Angra dos Reis — RJ"}};
+const RATE = 5.10; // BRL por USD — atualize aqui se quiser
+const PRICES = { rent:{brl:25000}, sale:{brl:2000000} };
+PRICES.rent.usd = Math.round(PRICES.rent.brl / RATE / 100) * 100;     // ~4900
+PRICES.sale.usd = Math.round(PRICES.sale.brl / RATE / 1000) * 1000;   // ~392000
+const WA_MSG = {
+  pt:{
+    rent:"Olá! Tenho interesse em ARRENDAR a casa na Ilha Grande (Saco do Céu) por R$25.000/mês.",
+    sale:"Olá! Tenho interesse em COMPRAR a casa na Ilha Grande (Saco do Céu) por R$2.000.000.",
+    generic:"Olá! Tenho interesse na casa na Ilha Grande (Saco do Céu)."
+  },
+  en:{
+    rent:"Hi! I'm interested in RENTING the house on Ilha Grande (Saco do Céu) for R$25,000/month (~US$4,900).",
+    sale:"Hi! I'm interested in BUYING the house on Ilha Grande (Saco do Céu) for R$2,000,000 (~US$392,000).",
+    generic:"Hi! I'm interested in the house on Ilha Grande (Saco do Céu)."
+  }
+};
+function nfmt(n,lang){ return n.toLocaleString(lang==='pt'?'pt-BR':'en-US'); }
+function renderPrices(lang){
+  const cur = lang==='pt' ? 'R$' : 'US$';
+  const per = lang==='pt' ? '/ mês' : '/ mo';
+  const rMain = lang==='pt' ? PRICES.rent.brl : PRICES.rent.usd;
+  const rAlt  = lang==='pt' ? PRICES.rent.usd : PRICES.rent.brl;
+  const rAltCur = lang==='pt' ? 'US$' : 'R$';
+  const sMain = lang==='pt' ? PRICES.sale.brl : PRICES.sale.usd;
+  const sAlt  = lang==='pt' ? PRICES.sale.usd : PRICES.sale.brl;
+  const sAltCur = lang==='pt' ? 'US$' : 'R$';
+  const rentEl=document.querySelector('[data-price="rent"]');
+  const saleEl=document.querySelector('[data-price="sale"]');
+  if(rentEl) rentEl.innerHTML = '<span class="cur">'+cur+'</span> '+nfmt(rMain,lang)+' <span class="per">'+per+'</span>';
+  const rApx=document.querySelector('[data-approx="rent"]');
+  if(rApx) rApx.textContent = '≈ '+rAltCur+' '+nfmt(rAlt,lang)+' '+per;
+  if(saleEl) saleEl.innerHTML = '<span class="cur">'+cur+'</span> '+nfmt(sMain,lang);
+  const sApx=document.querySelector('[data-approx="sale"]');
+  if(sApx) sApx.textContent = '≈ '+sAltCur+' '+nfmt(sAlt,lang);
+}
+function setWA(lang){
+  document.querySelectorAll('[data-wa]').forEach(a=>{
+    const t=a.getAttribute('data-wa');
+    a.href='https://wa.me/5524999643048?text='+encodeURIComponent(WA_MSG[lang][t]||WA_MSG[lang].generic);
+  });
+}
+function applyLang(lang, translateText){
+  document.documentElement.lang = lang==='pt' ? 'pt-BR' : 'en';
+  if(translateText){
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      const v = DICT[lang][el.getAttribute('data-i18n')];
+      if(v!==undefined) el.innerHTML = v;
+    });
+  }
+  setWA(lang);
+  renderPrices(lang);
+  const tg=document.getElementById('langToggle');
+  if(tg) tg.textContent = lang==='pt' ? 'EN' : 'PT';
+}
+let LANG = (navigator.language||'pt').toLowerCase().indexOf('en')===0 ? 'en' : 'pt';
+applyLang(LANG, LANG!=='pt');
+const _tg=document.getElementById('langToggle');
+if(_tg) _tg.addEventListener('click', ()=>{ LANG = LANG==='pt' ? 'en' : 'pt'; applyLang(LANG, true); });
+
 
 /* NAV scrolled */
 const nav = document.getElementById('nav');
